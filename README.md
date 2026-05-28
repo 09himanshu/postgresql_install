@@ -68,4 +68,17 @@ touch seed.js
 touch .env
 touch .env.example
 ```
+## Run this to grant permission
 
+```bash
+sudo -u postgres psql -d practice_a_db -c "GRANT ALL ON SCHEMA public TO devuser; ALTER DATABASE practice_a_db OWNER TO devuser;"
+
+sudo -u postgres psql -d practice_b_db -c "GRANT ALL ON SCHEMA public TO devuser; ALTER DATABASE practice_b_db OWNER TO devuser;"
+```
+
+## run setup.sql
+
+```bash
+psql -U devuser -d practice_a_db -f setup.sql
+psql -U devuser -d practice_b_db -f setup.sql
+```
